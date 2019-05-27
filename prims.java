@@ -1,18 +1,25 @@
 import java.util.Scanner;
 
 class prims {
-  int weight[][], sol[], source, n, u, v, sum = 0, min = 99, flag = 0;
-  
   public static void main(String args[]) {
+    int weight[][], sol[], source, n, u, v, sum = 0, min = 99, flag = 0;
     Scanner sc = new Scanner(System.in);
     
     //get number of vertices
     System.out.println("Enter number of vertices: ");
     n = sc.nextInt();
     
-    //initialie sol and weight arrays
+    //initialize sol and weight arrays
     sol = new int[10];
-    weight = new int[n][n];
+    weight = new int[n+1][n+1];
+    
+    //get weight matrix
+    System.out.println("Enter weight matrix: ");
+    for (int i = 1; i <= n; i++) {
+      for (int j = 1; j <= n; j++) {
+        weight[i][j] = sc.nextInt();
+      }
+    }
     
     //get source vertex
     System.out.println("Enter source vertex: ");
